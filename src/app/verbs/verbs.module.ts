@@ -3,18 +3,18 @@ import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 
 import { SharedModule } from '../shared/shared.module';
-import { CreatePage } from './create';
+import { VerbsPage } from './verbs';
 
 @NgModule({
   imports: [
     SharedModule,
-    IonicPageModule.forChild(CreatePage)
+    IonicPageModule.forChild(VerbsPage)
   ],
   declarations: [
-    CreatePage
+    VerbsPage
   ],
   entryComponents: [
-    CreatePage
+    VerbsPage
   ]
 })
-export class CreatePageModule { }
+export class VerbsPageModule { }

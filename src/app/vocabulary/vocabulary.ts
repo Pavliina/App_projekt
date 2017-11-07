@@ -7,18 +7,18 @@ import { UserModel } from '../core/user.model'
 @IonicPage()
 @Component({
   selector: 'page-list',
-  templateUrl: 'list.html'
+  templateUrl: 'vocabulary.html'
 })
-export class ListPage {
+export class VocabularyPage {
 
   public userProfile: UserModel;
   public uid: string = "";
 
   constructor(
-    public navCtrl: NavController, 
+    public navCtrl: NavController,
     public authService: AuthService,
   ) {
-    
+
   }
 
   ionViewDidLoad() {

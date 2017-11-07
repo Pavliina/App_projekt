@@ -20,6 +20,20 @@ export class AuthPage {
   ) {
   }
 
+  loginWithFacebook() {
+    let loading = this.loadingCtrl.create();
+    loading.present();
+    this.authService.signInWithFacebook()
+      .then((res) => {
+        this.updateProfile(res.user || res);
+        loading.dismiss();
+        this.navCtrl.setRoot('ListPage');
+      }, (error) => {
+        loading.dismiss();
+        this.showMessage(error && error.message);
+      });
+  }
+
   /**
    * login with google
    */
@@ -30,7 +44,7 @@ export class AuthPage {
       .then((res) => {
         this.updateProfile(res.user || res);
         loading.dismiss();
-        this.navCtrl.setRoot('SeznamPage');
+        this.navCtrl.setRoot('ListPage');
       }, (error) => {
         loading.dismiss();
         this.showMessage(error && error.message);
@@ -48,7 +62,7 @@ export class AuthPage {
       .then((res) => {
         this.updateProfile(res.user || res);
         loading.dismiss();
-        this.navCtrl.setRoot('SeznamPage');
+        this.navCtrl.setRoot('ListPage');
       }, (error) => {
         loading.dismiss();
         this.showMessage(error && error.message);

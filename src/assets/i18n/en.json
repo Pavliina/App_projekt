@@ -13,8 +13,5 @@
   "DELETE_ALL": "Delete all",
   "MARK_DONE": "Undone",
   "MARK_UNDONE": "Done",
-  "DELETE": "Delete",
-
-  "NEXT": "Next",
-  "SAVE": "Save"
+  "DELETE": "Delete"
 }

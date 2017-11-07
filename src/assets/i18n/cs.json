@@ -13,8 +13,5 @@
   "DELETE_ALL": "Smazat vše",
   "MARK_DONE": "Nesplněno",
   "MARK_UNDONE": "Splněno",
-  "DELETE": "Smazat",
-
-  "NEXT": "Další",
-  "SAVE": "Uložit"
+  "DELETE": "Smazat"
 }

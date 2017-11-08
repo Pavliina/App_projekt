@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>{{ userProfile?.displayName?.split(" ")[0] }} ToDo</ion-title>
+    <ion-title>Morfology: verbs</ion-title>
     <ion-buttons end>
       <button ion-button color="danger" (click)="logout()">
         <ion-icon name="log-out"></ion-icon>
@@ -9,5 +9,15 @@
   </ion-navbar>
 </ion-header>
 <ion-content>
-  Hello Universe!
+  <ion-item>
+    <ion-label>Já</ion-label>
+    <ion-select [(ngModel)]="gender" interface="popover">
+      <ion-option value="f">vím</ion-option>
+      <ion-option value="m">víš</ion-option>
+      <ion-option value="m">víme</ion-option>
+      <ion-option value="m">víte</ion-option>
+      <ion-option value="m">ví</ion-option>
+      <ion-item text-wrap>o tom problém</ion-item>
+    </ion-select>
+  </ion-item>
 </ion-content>

@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>{{ userProfile?.displayName?.split(" ")[0] }} ToDo</ion-title>
+    <ion-title>Morfology: Nouns</ion-title>
     <ion-buttons end>
       <button ion-button color="danger" (click)="logout()">
         <ion-icon name="log-out"></ion-icon>
@@ -9,5 +9,11 @@
   </ion-navbar>
 </ion-header>
 <ion-content>
-  Hello Universe!
+    <ion-list inset>
+        <button ion-item *ngFor="let item of items" (click)="itemSelected(item)">
+          {{ item }}
+        </button> 
+    </ion-list>
+    <button ion-button color="danger" round>čas</button><button ion-button color="danger" round>časech</button>
+    <button ion-button color="danger" round>času</button><button ion-button color="danger" round>časy</button>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
 </ion-content>

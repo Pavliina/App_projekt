@@ -24,14 +24,21 @@ export class NounsPage {
 
   public userProfile: UserModel;
   public uid: string = "";
+  //public categories: any[] = [];
 
   constructor(
     public navCtrl: NavController,
     public authService: AuthService,
-    private db: DataService,
+   // private db: DataService,
   ) {
-
+    //this.db.bindCollection("categories", this, "categories", ref => ref, this.bindToCategories);
   }
+  //bindToCategories(context, variable) {
+    //for(let category of context.categories) {
+    //  context.db.bindCollection("places", context.places, category.id, ref => ref.where("category", "==", "category"))
+    //}
+  //}
+  
 
   ionViewDidLoad() {
     this.authService.getFullProfile().subscribe((user) => {

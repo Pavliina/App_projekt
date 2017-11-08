@@ -39,7 +39,7 @@ export class AuthService {
   /**
    * sign in with facebook
    */
-  signInWithFacebook(): firebase.Promise<any> {
+  signInWithFacebook(): Promise<any> {
     if (this.platform.is('cordova')) {
       return this.platform.ready().then(() => {
         return this.facebook.login(['email', 'public_profile']).then((res) => {
@@ -55,7 +55,7 @@ export class AuthService {
   /**
    * sign in with googleplus
    */
-  signInWithGoogle(): firebase.Promise<any> {
+  signInWithGoogle(): Promise<any> {
     if (this.platform.is('cordova')) {
       return this.platform.ready().then(() => {
         return this.googleplus.login({
@@ -66,7 +66,7 @@ export class AuthService {
           const googleCredential = firebase.auth.GoogleAuthProvider.credential(res.idToken);
           return this.afAuth.auth.signInWithCredential(googleCredential);
         }, (error) => {
-          return firebase.Promise.reject(error);
+          return Promise.reject(error);
         });
       });
     } else {
@@ -77,25 +77,25 @@ export class AuthService {
   /**
    * sign in with email & password
    */
-  signInWithEmail(credential: any): firebase.Promise<any> {
+  signInWithEmail(credential: any): Promise<any> {
     return this.afAuth.auth.signInWithEmailAndPassword(credential.email, credential.password);
   }
 
   /**
    * sign up with email & password
    */
-  signUpWithEmail(credential: any): firebase.Promise<void> {
+  signUpWithEmail(credential: any): Promise<void> {
     return this.afAuth.auth.createUserWithEmailAndPassword(credential.email, credential.password);
   }
 
   /**
    * sign out
    */
-  signOut(): firebase.Promise<any> {
+  signOut(): Promise<any> {
     return this.afAuth.auth.signOut();
   }
 
-  updateProfile(user): firebase.Promise<any> {
+  updateProfile(user): Promise<any> {
     user.updatedAt = firebase.database['ServerValue']['TIMESTAMP'];
 
     let providerData = user.providerData;
@@ -108,14 +108,14 @@ export class AuthService {
   /**
    * get full profile
    */
-  getFullProfile(uid?: string): Observable<UserModel> {
+  getFullProfile(uid?: string) {
     if (uid)
-      return this.db.object(Config.firebase_tables.User + '/' + uid);
+      return this.db.object(Config.firebase_tables.User + '/' + uid).snapshotChanges();
     
     return Observable.create((observer) => {
       this.getAuth().subscribe((user: firebase.User) => {
         if (user !== null)
-          this.db.object(Config.firebase_tables.User + '/' + user.uid).subscribe((res) => observer.next(res));
+          this.db.object(Config.firebase_tables.User + '/' + user.uid).snapshotChanges().subscribe((res) => observer.next(res));
       });
     });
   }

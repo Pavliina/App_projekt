@@ -4,7 +4,7 @@ import * as _ from 'lodash';
 import * as firebase from 'firebase';
 declare type QueryFn = (ref: firebase.firestore.CollectionReference) => firebase.firestore.Query;
 declare type HookFn = (context, variable: string) => void;
-import { FirebaseModel } from '../models/firebase.model';
+import { FirebaseModel } from './firebase.model';
 
 @Injectable()
 export class DataService {
@@ -77,4 +77,4 @@ export class DataService {
             return snap.payload.exists ? this.update(path, document) : this.set(path, document)
         })
     }
-}
+} 

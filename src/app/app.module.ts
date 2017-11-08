@@ -9,6 +9,7 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 
 //Local plugins
@@ -23,14 +24,15 @@ export function HttpLoaderFactory(http: Http) {
     return new TranslateHttpLoader(http, '../../assets/i18n/', '.json');
 }
 
-@NgModule({
-  imports: [
+@NgModule({ 
+  imports: [  
     BrowserModule,
     HttpModule,
     CoreModule,
     IonicModule.forRoot(AppComponent),
     AngularFireModule.initializeApp(Config.firebase),
-    AngularFireDatabaseModule, 
+    AngularFirestoreModule,
+    AngularFireDatabaseModule,  
     AngularFireAuthModule,
     TranslateModule.forRoot({
             loader: {

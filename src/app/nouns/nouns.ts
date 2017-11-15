@@ -14,10 +14,25 @@ export class NounsPage {
 
   items = [
     'on má málo',
-    'rozhodl o tom',
+    'rozhodl o tom v',
     'mluvil o lepších',
     'vylepšil si své tréninkové',
   ];
+
+  options = [
+    "čas",
+    "časech",
+    "času",
+    "časy",
+  ];
+
+  correctAnswers = [
+    2,0,1,3,
+  ];
+
+  selected = undefined;
+
+
   itemSelected(item: string) {
     console.log("Selected Item", item);
   }
@@ -51,4 +66,16 @@ export class NounsPage {
     this.authService.signOut().then(() => this.navCtrl.setRoot('AuthPage'));
   }
 
+  selectItem(index) {
+    this.selected = index; //index radku
+  }
+//index tl
+  answer(index) {
+    if(this.selected != undefined) {
+      if(this.correctAnswers[this.selected] == index) {
+        alert("any");
+      }
+    }
+    
+  }
 }

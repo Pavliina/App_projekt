@@ -31,5 +31,4 @@ export class ListPage {
   logout() {
     this.authService.signOut().then(() => this.navCtrl.setRoot('AuthPage'));
   }
-
 }

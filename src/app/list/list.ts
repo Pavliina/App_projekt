@@ -24,6 +24,15 @@ export class ListPage {
   nounsPage(){
     this.navCtrl.push("NounsPage");
   }
+  verbsPage(){
+    this.navCtrl.push("VerbsPage");
+  }
+  vocabularyPage(){
+    this.navCtrl.push("VocabularyPage");
+  }
+  diacriticsPage(){
+    this.navCtrl.push("DiacriticsPage");
+  }
 
   ionViewDidLoad() {
     this.authService.getFullProfile().subscribe((user) => {

@@ -3,6 +3,7 @@ import { NavController, IonicPage } from 'ionic-angular';
 
 import { AuthService } from '../core/auth.service';
 import { UserModel } from '../core/user.model'
+import {DataService} from '../core/data.service'
 
 @IonicPage()
 @Component({

@@ -13,6 +13,7 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { ListPage } from './list/list';
 import { NounsPage } from './nouns/nouns';
+import { VerbsPage } from './verbs/verbs';
 
 //Local plugins
 import { AppComponent } from './app.component';

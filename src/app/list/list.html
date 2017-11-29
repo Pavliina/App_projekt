@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar color="primary">
+  <ion-navbar color="royal">
     <ion-buttons>
       <button ion-button (click)="menu()">
        <ion-icon name="menu"></ion-icon>        
@@ -16,10 +16,10 @@
 <ion-content>
   <b> <h1 style="margin-bottom: 8%; margin-top: 5%; text-align: center"> Learn Czech with PLIN</h1> </b>
   <h6 style="margin-bottom: 4%; text-align: center"> What do you want to focus on?</h6> 
-   <button ion-button round style="width: 95%; min-height: 8%; height: 8%; margin-bottom: 6%"> Diacritics</button>
-   <button ion-button round style="width: 95%; min-height: 8%; height: 8%; margin-bottom: 6%"> Vocabulary</button>
-   <button ion-button round style="width: 95%; min-height: 8%; height: 8%; margin-bottom: 6%"> Nouns</button>
-   <button ion-button round style="width: 95%; min-height: 8%; height: 8%; margin-bottom: 6%"> Verbs</button>
+   <button ion-button round color="royal" style="width: 95%; min-height: 8%; height: 8%; margin-bottom: 6%"> Diacritics</button>
+   <button ion-button round color="royal" style="width: 95%; min-height: 8%; height: 8%; margin-bottom: 6%"> Vocabulary</button>
+   <button ion-button (click)="nounsPage()" round color="royal" style="width: 95%; min-height: 8%; height: 8%; margin-bottom: 6%"> Nouns</button>
+   <button ion-button round color="royal" style="width: 95%; min-height: 8%; height: 8%; margin-bottom: 6%"> Verbs</button>
    <ion-buttons>
       <button ion-button color="light" (click)="help()">
           <ion-icon name="help-circle"></ion-icon>

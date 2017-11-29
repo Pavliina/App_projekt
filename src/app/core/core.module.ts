@@ -14,14 +14,14 @@ import { DataService } from './data.service';
 @NgModule({
   imports: [
     CommonModule, // we use ngFor
-  ],
+  ],  
   providers: [ 
     StatusBar,
     SplashScreen,
     Facebook,
     GooglePlus,
     AuthService, 
-    DataService 
+    DataService
   ]
 })
 export class CoreModule { 

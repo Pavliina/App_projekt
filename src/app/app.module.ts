@@ -11,6 +11,8 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import { ListPage } from './list/list';
+import { NounsPage } from './nouns/nouns';
 
 //Local plugins
 import { AppComponent } from './app.component';
@@ -43,7 +45,9 @@ export function HttpLoaderFactory(http: Http) {
         }
     )
   ],
-  declarations: [ AppComponent ],
+  declarations: [ 
+    AppComponent
+  ],
   bootstrap: [ IonicApp ],
   exports: [ 
     AppComponent 

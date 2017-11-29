@@ -10,12 +10,13 @@
 </ion-header>
 <ion-content>
     <ion-list inset>
-        <button ion-item *ngFor="let item of items; let index" (click)="selectItem(index)">
+        <button ion-item *ngFor="let item of items" (click)="selectItem(item)">
           {{ item }}
         </button> 
     </ion-list>
-        <button ion-button [color]="selected == index  ? 'primary' : 'danger'" round *ngFor="let option of options; let index" (click)="answer(index)">
+        <button ion-button [disabled]="selected == undefined || answered[i]" [color]="answered[i] ? 'secondary' : 'danger'" round *ngFor="let option of options; index as i" (click)="answer(option)">
             {{ option }}
+            {{i}} {{index}}
         </button>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
 </ion-content>
 
@@ -26,3 +27,4 @@
   <ion-item *ngFor="let place of places[category.id]">
     {{}}
   </ion-item> -->
+  list

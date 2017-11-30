@@ -12,6 +12,13 @@ import {DataService} from '../core/data.service'
 })
 export class VerbsPage {
 
+  verbs = [
+    "vím",
+    "víš",
+    "víme",
+    "ví",
+  ];
+
   public userProfile: UserModel;
   public uid: string = "";
 

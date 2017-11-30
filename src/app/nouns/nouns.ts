@@ -98,7 +98,7 @@ export class NounsPage {
   }
   showToast() {
     let toast = this.toastCtrl.create({
-      message: 'User was added successfully',
+      message: 'Výtečně!',
       duration: 3000
     });
     toast.present();

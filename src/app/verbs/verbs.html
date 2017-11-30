@@ -12,45 +12,37 @@
   <h1 style= "text-align: center"> VĚDĚT</h1>
   <ion-item>
     <ion-label>Já</ion-label>
-    <ion-select [(ngModel)]="ja" interface="popover" style="margin-right: 220px">
-      <ion-option>vím</ion-option>
-      <ion-option>víš</ion-option>
-      <ion-option>víme</ion-option>
-      <ion-option>víte</ion-option>
-      <ion-option>ví</ion-option>
+    <ion-select [(ngModel)]="ja" interface="popover">
+      <ion-option *ngFor="let verb of verbs">
+          {{ verb }}
+      </ion-option>
     </ion-select> 
   </ion-item>
   <h6 style="margin-left: 30px">o tom problému.</h6>
   <ion-item>
     <ion-label>Ty</ion-label>
-    <ion-select [(ngModel)]="ty" interface="popover" style="margin-right: 220px">
-      <ion-option>vím</ion-option>
-      <ion-option>víš</ion-option>
-      <ion-option>víme</ion-option>
-      <ion-option>víte</ion-option>
-      <ion-option>ví</ion-option>
+    <ion-select [(ngModel)]="ty" interface="popover">
+      <ion-option *ngFor="let verb of verbs">
+          {{ verb }}
+      </ion-option>
     </ion-select>
   </ion-item>
   <h6 style="margin-left: 30px">o jeho dětech. </h6>
   <ion-item>
       <ion-label>On</ion-label>
-      <ion-select [(ngModel)]="on" interface="popover" style="margin-right: 220px">
-        <ion-option>vím</ion-option>
-        <ion-option>víš</ion-option>
-        <ion-option>víme</ion-option>
-        <ion-option>víte</ion-option>
-        <ion-option>ví</ion-option>
+      <ion-select [(ngModel)]="on" interface="popover">
+        <ion-option *ngFor="let verb of verbs">
+            {{ verb }}
+        </ion-option>
       </ion-select> 
     </ion-item>
     <h6 style="margin-left: 30px">že nejím mandarinky.</h6>
     <ion-item>
     <ion-label>My</ion-label>
-    <ion-select [(ngModel)]="my" interface="popover" style="margin-right: 220px">
-        <ion-option>vím</ion-option>
-        <ion-option>víš</ion-option>
-        <ion-option>víme</ion-option>
-        <ion-option>víte</ion-option>
-        <ion-option>ví</ion-option>
+    <ion-select [(ngModel)]="my" interface="popover">
+        <ion-option *ngFor="let verb of verbs">
+            {{ verb }}
+        </ion-option>
       </ion-select> 
   </ion-item>
   <h6 style="margin-left: 30px">kdy máš narozeniny.</h6>

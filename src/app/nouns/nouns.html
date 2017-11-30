@@ -14,9 +14,9 @@
           {{ item }}
         </button> 
     </ion-list>
-        <button ion-button [disabled]="selected == undefined || answered[i]" [color]="answered[i] ? 'secondary' : 'danger'" round *ngFor="let option of options; index as i" (click)="answer(option)">
+        <button ion-button [disabled]="selected == undefined || answered[i]" [color]="answered[i] ? 'secondary' : 'danger'" round 
+          *ngFor="let option of options; index as i" (click)="answer(option)">
             {{ option }}
-            {{i}} {{index}}
         </button>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
 </ion-content>
 

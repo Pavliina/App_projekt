@@ -5,6 +5,8 @@ import { AuthService } from '../core/auth.service';
 import { UserModel } from '../core/user.model'
 import {DataService} from '../core/data.service'
 
+import { ToastController } from 'ionic-angular';
+
 @IonicPage()
 @Component({
   selector: 'page-list',
@@ -14,7 +16,7 @@ export class NounsPage {
 
   items = [
     'on má málo',
-    'rozhodl o tom v',
+    'rozhodl o tom',
     'mluvil o lepších',
     'vylepšil si své tréninkové',
   ];
@@ -27,9 +29,18 @@ export class NounsPage {
   ];
 
   correctAnswers = [
-    2,0,1,3,
+    'rozhodl o tom čas',
+    'mluvil o lepších časech',
+    'on má málo času',
+    'vylepšil si své tréninkové časy',
   ];
 
+  answered = [
+    false,
+    false,
+    false,
+    false
+  ]
   selected = undefined;
 
 
@@ -44,6 +55,7 @@ export class NounsPage {
   constructor(
     public navCtrl: NavController,
     public authService: AuthService,
+    public toastCtrl: ToastController,
    // private db: DataService,
   ) {
     //this.db.bindCollection("categories", this, "categories", ref => ref, this.bindToCategories);
@@ -66,16 +78,29 @@ export class NounsPage {
     this.authService.signOut().then(() => this.navCtrl.setRoot('AuthPage'));
   }
 
-  selectItem(index) {
-    this.selected = index; //index radku
+  selectItem(question) {
+    this.selected = question; //index radku
   }
-//index tl
-  answer(index) {
+//index tlacitka
+  answer(answer) {
     if(this.selected != undefined) {
-      if(this.correctAnswers[this.selected] == index) {
-        alert("any");
+      let index = this.correctAnswers.indexOf(this.selected + " " + answer);
+      if(index != -1) {
+        this.answered[index] = true;
+      }
+      this.selected = undefined;
+
+    let x = this.answered.indexOf(false);
+    if(x == -1) {
+      this.showToast();
       }
     }
-    
+  }
+  showToast() {
+    let toast = this.toastCtrl.create({
+      message: 'Výtečně!',
+      duration: 3000
+    });
+    toast.present();
   }
 }

@@ -10,40 +10,14 @@
 </ion-header>
 <ion-content>
   <h1 style= "text-align: center"> VĚDĚT</h1>
-  <ion-item>
-    <ion-label>Já</ion-label>
-    <ion-select [(ngModel)]="ja" interface="popover">
-      <ion-option *ngFor="let verb of verbs">
-          {{ verb }}
-      </ion-option>
-    </ion-select> 
-  </ion-item>
-  <h6 style="margin-left: 30px">o tom problému.</h6>
-  <ion-item>
-    <ion-label>Ty</ion-label>
-    <ion-select [(ngModel)]="ty" interface="popover">
-      <ion-option *ngFor="let verb of verbs">
-          {{ verb }}
-      </ion-option>
-    </ion-select>
-  </ion-item>
-  <h6 style="margin-left: 30px">o jeho dětech. </h6>
-  <ion-item>
-      <ion-label>On</ion-label>
-      <ion-select [(ngModel)]="on" interface="popover">
-        <ion-option *ngFor="let verb of verbs">
-            {{ verb }}
-        </ion-option>
+  <div *ngFor = "let sentence of sentences; index as sentenceIndex">
+    <ion-item>
+      <ion-label>{{sentence.beginning}}</ion-label>
+      <ion-select [(ngModel)]="answers[sentenceIndex]" interface="popover" style="margin-right: 220px">
+        <ion-option [value]="questionIndex" *ngFor = "let question of sentence.question; index as questionIndex">{{question}}</ion-option>
       </ion-select> 
     </ion-item>
-    <h6 style="margin-left: 30px">že nejím mandarinky.</h6>
-    <ion-item>
-    <ion-label>My</ion-label>
-    <ion-select [(ngModel)]="my" interface="popover">
-        <ion-option *ngFor="let verb of verbs">
-            {{ verb }}
-        </ion-option>
-      </ion-select> 
-  </ion-item>
-  <h6 style="margin-left: 30px">kdy máš narozeniny.</h6>
+    <h6 style="margin-left: 30px">{{sentence.end}}</h6>
+  </div>
+  <button ion-button (click)="checkCorrect()">TEST</button>
 </ion-content>

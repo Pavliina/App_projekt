@@ -11,6 +11,57 @@ import {DataService} from '../core/data.service'
   templateUrl: 'verbs.html'
 })
 export class VerbsPage {
+  public answers: number[] = [];
+  public sentences: any = [
+    {
+      beginning: "Já",
+      end: "o tom problému.",
+      question:[
+        "vím",
+        "víš",
+        "ví",
+        "víme",
+        "víte"
+      ],
+      correct: 0
+    },
+    {
+      beginning: "Ty",
+      end: "o jeho dětech.",
+      question:[
+        "vím",
+        "víš",
+        "ví",
+        "víme",
+        "víte"
+      ],
+      correct: 1
+    },
+    {
+      beginning: "On",
+      end: "že nejím mandarinky.",
+      question:[
+        "vím",
+        "víš",
+        "ví",
+        "víme",
+        "víte"
+      ],
+      correct: 2
+    },
+    {
+      beginning: "My",
+      end: "kdy máš narozeniny.",
+      question:[
+        "vím",
+        "víš",
+        "ví",
+        "víme",
+        "víte"
+      ],
+      correct: 3
+    }
+  ];
 
   verbs = [
     "vím",
@@ -28,7 +79,15 @@ export class VerbsPage {
   ) {
 
   }
-
+  checkCorrect() {
+    for(let i in this.sentences) {
+      if(this.sentences[i].correct == this.answers[i]) {
+        alert("CORRECT")
+      } else {
+        alert("INCORRECT")
+      }
+    }
+  }
   ionViewDidLoad() {
     this.authService.getFullProfile().subscribe((user) => {
       this.userProfile = user;

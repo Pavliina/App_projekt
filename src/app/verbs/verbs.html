@@ -18,7 +18,7 @@
       </ion-select> 
     </ion-item>
     <h6 style="margin-left: 30px">{{sentence.end}}</h6>
-    <button ion-button [color]="answers[sentenceIndex] ? 'danger' : 'secondary'" > <ion-icon name="checkmark"></ion-icon></button>    
+    <button ion-button [color]="answers[sentenceIndex] ? 'secondary' : 'danger'" > <ion-icon name="checkmark"></ion-icon></button>    
   </div>
   <button ion-button (click)="checkCorrect()">DONE</button>
 </ion-content>

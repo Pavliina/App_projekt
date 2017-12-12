@@ -4,6 +4,7 @@ import { NavController, IonicPage } from 'ionic-angular';
 import { AuthService } from '../core/auth.service';
 import { UserModel } from '../core/user.model'
 import {DataService} from '../core/data.service'
+import { ToastController } from 'ionic-angular'
 
 @IonicPage()
 @Component({
@@ -79,15 +80,26 @@ export class VerbsPage {
   ) {
 
   }
-  checkCorrect() {
-    for(let i in this.sentences) {
-      if(this.sentences[i].correct == this.answers[i]) {
-        alert("CORRECT")
+
+  checkCorrect(
+      outputRight: string = "",
+      outputWrong: string = ""
+   ) {
+      for (let i in this.sentences) {
+        if (this.sentences[i].correct == this.answers[i]) {
+          outputRight += (i + ". odpoved je spravne. \n");
+        } else {
+          outputWrong += (i + ". odpoved je spatne. \n");
+        }
+        }
+
+      if (outputWrong =="") {
+        alert ("vse je spravne");
       } else {
-        alert("INCORRECT")
+        alert (outputRight + outputWrong);
       }
-    }
   }
+
   ionViewDidLoad() {
     this.authService.getFullProfile().subscribe((user) => {
       this.userProfile = user;
